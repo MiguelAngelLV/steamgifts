@@ -50,7 +50,7 @@ public class SteamGifts {
 	public void open(String page) {
 		
 		firefox.get(page);
-		List<WebElement> enlaces = firefox.findElements(By.cssSelector(".post .title a"));
+		List<WebElement> enlaces = firefox.findElements(By.cssSelector(".post:not(.fade) .title a"));
 		
 		ArrayList<String> links = new ArrayList<String>(enlaces.size());
 		
