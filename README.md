@@ -1,10 +1,5 @@
-#SteamAutoGift 
-Esta pequeña aplicación controla Firefox para apuntarse a los distintos sorteos de las llaves de Steam.
+# Auto-SteamGifs
 
-Para ello, lee el fichero _favorities.txt_ y busca todos los sorteos concordantes. 
+Aplicación para apuntartse a los sorteos de Steam Gifts
 
-Finalmente, se apunta al resto de sorteos de la primera página.
-
------------
-#Uso
-Para usarlo debéis tener Firefox instalado y correctamente identificado en SteamGift
+Esta versión aún es experimental, requiere un perfil de Chrome y Chrome Driver.
