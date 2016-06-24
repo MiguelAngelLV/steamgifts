@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
+import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.firefox.FirefoxProfile
 import org.openqa.selenium.firefox.internal.ProfilesIni
 
@@ -20,19 +21,10 @@ public class SteamGifts {
 
     public SteamGifts() {
 
-
-        System.setProperty("webdriver.chrome.driver", "/home/miguel/bin/chromedriver");
-
-
         ProfilesIni profilesIni = new ProfilesIni();
         FirefoxProfile profile = profilesIni.getProfile("default");
 
-        ChromeOptions options = new ChromeOptions()
-        options.addArguments("user-data-dir=/home/miguel/seleniumprofile")
-        options.addArguments("start-maximized");
-
-
-        browser = new ChromeDriver(options)
+        browser = new FirefoxDriver(profile)
     }
 
 
@@ -43,6 +35,9 @@ public class SteamGifts {
         browser.get(URL_WISH_LIST)
         updatePoints()
 
+
+        browser.findElement(By.cssSelector(".pinned-giveaways__button")).click()
+
         List<WebElement> elements = browser.findElementsByCssSelector(".page__heading + div [data-game-id]")
         elements.each {
             addGame(it)
@@ -50,6 +45,8 @@ public class SteamGifts {
 
 
         browser.get(URL)
+
+        browser.findElement(By.cssSelector(".pinned-giveaways__button")).click()
 
         elements = browser.findElementsByCssSelector("[data-game-id]")
         elements.each {
